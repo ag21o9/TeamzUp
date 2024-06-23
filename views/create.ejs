@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .navbar ul li {
+        margin-right: 20px;
+      }
+
+      .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .progress-form .form-group {
+        margin-bottom: 15px;
+      }
+
+      .progress-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .progress-form input[type="number"],
+      .progress-form input[type="text"],
+      .progress-form input[type="url"],
+      .progress-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        background-color: #f9f9f9;
+      }
+
+      .progress-form input[type="number"]:focus,
+      .progress-form input[type="text"]:focus,
+      .progress-form input[type="url"]:focus,
+      .progress-form textarea:focus {
+        border-color: #4caf50;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        outline: none;
+      }
+
+      .progress-form button {
+        width: 100%;
+        padding: 15px;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .progress-form button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekathon Progress Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/dashboard/create">Create Progress</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
+    <div class="form-container">
+      <h1>Submit Your Weekathon Progress</h1>
+      <form class="progress-form" action="/dashboard/create" method="post">
+        <div class="form-group">
+          <label for="number">Number:</label>
+          <input type="number" id="number" name="number" required />
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="desc" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="githublink">GitHub Link:</label>
+          <input type="url" id="githublink" name="githublink" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

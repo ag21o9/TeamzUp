@@ -1,0 +1,84 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #e9ecef, #fbfbff); /* Change these colors for your gradient */
+}
+
+.container {
+  width: 400px;
+  height: auto;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-field i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field input:focus {
+  border-color: #aaa;
+}
+
+button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+a {
+  color: #aaa;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+a:hover {
+  color: #888;
+}

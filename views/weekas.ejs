@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekathon Dashboard</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .navbar ul li {
+        margin-right: 20px;
+      }
+
+      .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .dashboard {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .user-progress {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .user-card {
+        background-color: #fff;
+        border: 1px solid green;
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 150px;
+        width: 20%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-card h2 {
+        margin-top: 0;
+      }
+
+      .progress {
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+
+      .progress-bar {
+        background-color: #4caf50;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/dashboard/create">Create Progress</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
+    <div class="dashboard">
+      <h1>Weekathon Dashboard</h1>
+      <div class="user-progress">
+        <% data.forEach((element,index) => {%>
+        <div class="user-card">
+          <h2><%= nme[index]['username'] %></h2>
+          <p>
+            Project Title: <span class="project-title"><%= element.title %></span>
+          </p>
+          <p>
+            Description: <span class="project-description"><%= element.desc %></span>
+          </p>
+          <p>
+            GitHub:
+            <a href="<%=element.githublink%>" target="_blank">View Repo</a>
+          </p>
+          <div class="progress">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+          <p>Progress: 100%</p>
+        </div>
+        <%}); %>
+      </div>
+    </div>
+
+  </body>
+</html>
