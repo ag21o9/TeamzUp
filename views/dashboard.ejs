@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weekathons Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+main {
+    padding: 2em;
+}
+
+.weekathon-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.weekathon {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    flex: 1 1 calc(33% - 2em);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.weekathon h2 {
+    margin-top: 0;
+}
+
+.weekathon a {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.weekathon a:hover {
+    background-color: #45a049;
+}
+
+    </style>
 </head>
 <body>
-    Dashboard of <%=username%>
+    <header>
+        <h1>Weekathons Dashboard</h1>
+    </header>
+    <main>
+        <section class="weekathon-list">
+            <% for (let index = 0; index < wno; index++) {%>
+                <div class="weekathon">
+                    <h2>Weekathon <%=index+1%></h2>
+                    <a href="/dashboard/data/<%=index+1%>" target="_blank">View Details</a>
+                </div>
+            <%} %>
+        </section>
+    </main>
 </body>
 </html>

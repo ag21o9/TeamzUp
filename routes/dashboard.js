@@ -14,8 +14,8 @@ function issign(req, res, next) {
   }
 }
 
-router.get("/data", issign, async (req, res) => {
-  const data = await CompModel.find();
+router.get("/data/:i", issign, async (req, res) => {
+  const data = await CompModel.find({wno:req.params.i});
   const nme = await UserModel.find();
   res.render("weekas", { data, nme });
 });
@@ -26,18 +26,24 @@ router.get("/create", issign, (req, res) => {
 
 router.post("/create", issign, async (req, res) => {
   const { number, title, desc, githublink } = req.body;
-  const data = await CompModel.create({
-    userid: req.user.userid,
-    wno: number,
-    title,
-    desc,
-    githublink,
-  });
-  res.render('success');
+
+  const exist = await CompModel.findOne({ userid: req.user.userid });
+  if (exist && number == exist.wno) {
+    res.send("already participated this week");
+  } else {
+    const data = await CompModel.create({
+      userid: req.user.userid,
+      wno: number,
+      title,
+      desc,
+      githublink,
+    });
+    res.render("success");
+  }
 });
 
 router.get("/", issign, (req, res) => {
-  res.render("dashboard", { username: req.user.username });
+  res.render("dashboard", {wno:1});
 });
 
 module.exports = router;

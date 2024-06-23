@@ -7,7 +7,6 @@ function issign(req, res, next) {
   if (req.cookies["token"]) {
     const user = jwt.verify(req.cookies["token"], "alpha");
     req.user = user.user;
-    console.log(req.user);
     res.render('success');
   } else {
     next()
@@ -36,8 +35,6 @@ router.post("/login", issign, async (req, res) => {
   const { username, password } = req.body;
 
   const user = await UserModel.findOne({ username: username });
-  console.log(username);
-  console.log(password);
 
   if (user && user.password == password) {
     const token = jwt.sign(
